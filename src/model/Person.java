@@ -4,17 +4,20 @@ import annotation.Column;
 import annotation.PrimaryKey;
 
 public class Person {
-    @PrimaryKey
+    @PrimaryKey(name = "k_id")
     private long id;
 
-    @Column
+    @Column(name = "c_name")
     private String name;
 
-    @Column
+    @Column(name = "c_age")
     private int age;
 
-    public Person(long id, String name, int age) {
-        this.id = id;
+    public Person() {
+
+    }
+
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
