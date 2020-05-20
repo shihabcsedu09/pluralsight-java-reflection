@@ -1,12 +1,16 @@
+import binmanager.BeanManager;
 import model.Person;
 import orm.EntityManager;
+import orm.ManagedEntityManager;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 
 public class WritingObjects {
 
-    public static void main(String[] args) throws SQLException, IllegalAccessException {
-        EntityManager<Person> entityManager = EntityManager.of(Person.class);
+    public static void main(String[] args) throws SQLException, IllegalAccessException, NoSuchMethodException, InstantiationException, InvocationTargetException {
+        BeanManager beanManager = BeanManager.getInstance();
+        EntityManager<Person> entityManager = beanManager.getInstance(ManagedEntityManager.class);
 
         Person linda = new Person("linda", 31);
         Person james = new Person("james", 24);
